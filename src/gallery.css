@@ -35,7 +35,9 @@
     overflow: hidden;
     z-index: 999;
 }
-
+.teste{
+    size: 50%;
+}
 .teste:hover{
     filter:opacity(0.6)
 }
