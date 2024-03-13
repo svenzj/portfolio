@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+.header-1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+
+.header-2 {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter; /* Set font weight to lighter */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
