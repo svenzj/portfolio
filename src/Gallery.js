@@ -9,18 +9,24 @@ import "./gallery.css";
 import Photos from './Photos';
 const Gallery = () => {
 
-    const getImagePath = (fileName) => {
-        return require(`./imagess/${fileName}`);
-    };
-
     const [model, setModel] = useState(false);
     const [tempimgSrc, setTempImgSrc] = useState('');
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const getImg = (imgSrc) => {
-        setTempImgSrc(imgSrc);
-        setModel(true);
+    const getImagePath = (fileName, index) => {
+        return require(`./imagess/${fileName}`);
+    };
+    const nextImage = () => {
+        const nextIndex = (activeIndex + 1) % imageData.length;
+        setTempImgSrc(getImagePath(imageData[nextIndex], nextIndex));
+        setActiveIndex(nextIndex);
     };
 
+    const prevImage = () => {
+        const prevIndex = (activeIndex - 1 + imageData.length) % imageData.length;
+        setTempImgSrc(getImagePath(imageData[prevIndex], prevIndex));
+        setActiveIndex(prevIndex);
+    };
 
 
     return (
@@ -28,9 +34,18 @@ const Gallery = () => {
             <div className={model ? "model open" : "model"}>
                 <img src={tempimgSrc} alt="enlarged" />
                 <CloseIcon onClick={() => setModel(false)} />
-            </div>
-            <Box sx={{ marginLeft: 2, minHeight: 829 }}>
-                <Photos imageData={imageData} getImagePath={getImagePath} getImg={getImg} />
+                <button onClick={prevImage}>Previous</button>
+                <button onClick={nextImage}>Next</button>
+            </div >
+            <Box sx={{ marginLeft: 2, minHeight: 829, marginRight: "16px" }}>
+                <Photos
+                    imageData={imageData}
+                    setModel={setModel}
+                    setTempImgSrc={setTempImgSrc}
+                    setActiveIndex={setActiveIndex}
+                    getImagePath={getImagePath}
+                    activeIndex={activeIndex} // Pass activeIndex as a prop
+                />
             </Box>
 
         </>
