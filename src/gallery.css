@@ -1,3 +1,41 @@
+
+
+.navigation-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 0.5rem; /* Adjust padding using relative units */
+}
+
+
+
+/* Media query for smaller screen sizes */
+@media (max-width: 600px) {
+    .model.open svg{
+        position: fixed;
+        top:10px;
+        right: 10px;
+        width: 1rem;
+        height: 1rem;
+        padding:5px;
+        background-color:rgba(0, 0, 0, 0.4) ;
+        color:white;
+        cursor: pointer;
+    }
+}
+.previous-button {
+    position: absolute;
+    left: 20px; /* Adjust the distance from the left edge */
+}
+
+.next-button {
+    position: absolute;
+    right: 20px; /* Adjust the distance from the right edge */
+}
+
 .gallery {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -86,5 +124,15 @@
         -moz-column-width: 100%;
         column-width: 100%;
     }
+    .model.open svg{
+        position: fixed;
+        top:10px;
+        right: 10px;
+        width: 1rem;
+        height: 1rem;
+        padding:5px;
+        background-color:rgba(0, 0, 0, 0.4) ;
+        color:white;
+        cursor: pointer;
+    }
 }
-

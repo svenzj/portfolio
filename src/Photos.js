@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import imageData from './imageData'
 
-const Photos = ({ setModel, setTempImgSrc, getImagePath,setActiveIndex, activeIndex }) => {
+const Photos = ({ setModel, setTempImgSrc, getImagePath, setActiveIndex, activeIndex }) => {
 
 
     const Label = styled(Paper)(({ theme }) => ({
@@ -26,13 +26,15 @@ const Photos = ({ setModel, setTempImgSrc, getImagePath,setActiveIndex, activeIn
 
     return (
         <>
-            <Masonry columns={5} spacing={2} >
-                {imageData.map((item, index) => (
-                    <div key={index}>
-                        <Label>{index + 1}</Label>
-                        {/* para ver o numero da foto por cima(ordem) */}
-                        <img className="teste" onClick={() => getImg(getImagePath(item, index), index)}
-                            // srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
+            <Masonry columns={{ xs: 3, sm: 5, md: 5 }} spacing={2}>               
+            {imageData.map((item, index) => {
+                // Determine the number of columns based on filename
+                const columns = item.startsWith("HOR") ? true : false;
+                return (
+                    <div key={index} style={{ /* Add inline style to override default styling */ }}>
+                        <img
+                            className="teste"
+                            onClick={() => getImg(getImagePath(item, index), index)}
                             src={getImagePath(item)}
                             loading="lazy"
                             alt='img'
@@ -42,8 +44,11 @@ const Photos = ({ setModel, setTempImgSrc, getImagePath,setActiveIndex, activeIn
                             }}
                         />
                     </div>
-                ))}
+                );
+            })}
             </Masonry>
+
+
         </>
     );
 };

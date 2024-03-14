@@ -1,6 +1,6 @@
 const imageData = ["Untitled-1.jpg",
   "PI2A0721.jpg",  
-  "PI2A9763.jpg",
+  "HORPI2A9763.jpg",
   "PI2A0950.jpg",
   "PI2A0972.jpg",
   "PI2A0897.jpg",

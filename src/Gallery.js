@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import imageData from "./imageData";
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 // import CircularProgress from '@mui/material/CircularProgress'; // Import CircularProgress
 
@@ -34,8 +36,10 @@ const Gallery = () => {
             <div className={model ? "model open" : "model"}>
                 <img src={tempimgSrc} alt="enlarged" />
                 <CloseIcon onClick={() => setModel(false)} />
-                <button onClick={prevImage}>Previous</button>
-                <button onClick={nextImage}>Next</button>
+                <div className="navigation-buttons">
+                    <ArrowBackIosNewIcon className="previous-button" onClick={prevImage} />
+                    <ArrowForwardIosIcon className="next-button" onClick={nextImage} />
+                </div>
             </div >
             <Box sx={{ marginLeft: 2, minHeight: 829, marginRight: "16px" }}>
                 <Photos
