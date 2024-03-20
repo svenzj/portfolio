@@ -13,8 +13,14 @@ const imageData = ["Untitled-1.jpg",
   "PI2A0974.jpg",
   "PI2A0934.jpg",
   "PI2A8733.jpg",
-  "PI2A0817.jpg",
+  "PI2A8324.jpg",
   "PI2A1030.jpg",
+  "PI2A9562.jpg",
+  "PI2A9607.jpg",
+  "PI2A8276.jpg",
+  "PI2A8877.jpg",
+  "PI2A0817.jpg",
+
 ];
 
 // const imageData = ["Untitled-1.8016af03c4ffd31e2ff6.jpg",
